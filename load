@@ -1,0 +1,17 @@
+-- Variable
+local rs = game:GetService("RunService")
+
+-- Remove PopUp
+game.Players.LocalPlayer.PlayerGui.OnScreen.Stats.Pstat.ChildAdded:Connect(function(v)
+    if v.Name == "PopUp" then
+        rs.RenderStepped:wait()
+        v:Destroy()
+    end
+end)
+
+-- Inf Cash
+rs.RenderStepped:Connect(function()
+    for i = 1, 3 do
+        game.ReplicatedStorage.RE.Robbery:FireServer()
+    end
+end)
